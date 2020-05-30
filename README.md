@@ -1,5 +1,9 @@
 # Project 1 - Book
 
+[The project published on heroku](https://mandrcs50pr1.herokuapp.com/)
+
+[About the project on YouTube](https://www.youtube.com/watch?v=OQ3yafOC8JY)
+
 ## Structure of Project
 ### Content
 - The Directory **static** - css and js files (bootstrap, jquery, special styles for project in styles.css, which generated from sass). It is directory, which used Flask for loading static files.
@@ -46,15 +50,10 @@ In [style.css](static/css/styles.css) I added some styles for specific places (c
 ### Python files
 
 #### Config
-**Config.py not includes in project** and contains function set_variable() for setting environment variables. I had the problems with it and I used the function. I added variable ```os.environ["GOOD_KEY"]``` for api key.
-```python
-import os
-
-def set_variable():
-    os.environ["GOOD_KEY"] = "api_key"
-    os.environ["DATABASE_URL"] = "DATABASE_URL"
-    os.environ["FLASK_APP"] = "application.py"
-    os.environ["FLASK_DEBUG"] = '1'
+Environment variables for api key and DB:
+```
+os.getenv("GOOD_KEY")
+os.getenv("DATABASE_URL")
 ```
 
 #### Import
