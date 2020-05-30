@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}{{ book['title'] }}{% endblock %}
+{% block content %}
+<div class="container mx-auto my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="http://covers.openlibrary.org/b/isbn/{{ book['isbn'] }}-L.jpg" class="card-img my-auto" alt="cover {{ book["title="] }}">
+        </div>
+        <div class="col-md-8">
+            <h1>{{ book['title'] }}</h1>
+            <h2 class="text-muted">{{ book['author'] }}</h2>
+            <p class="rating">The average rating {{ rating['avg_rating'] }}</p>
+            <p>Rating from <a href="https://www.goodreads.com/">goodreads.com</a>. Reviews count: {{ rating["reviews_count"] }}</p>
+            <p>Published {{ book['year'] }}</p>
+            <p>ISBN {{ book['isbn'] }}</p>
+
+        </div>
+
+    </div>
+    <div class="my-5">
+        <h2>Reviews</h2>
+        {% if review_rating %}
+        <h3 class="text-muted">The average rating {{ review_rating }}</h3>
+        {% endif %}
+
+    </div>
+
+    {% include "form_review.html" %}
+    {% if reviews %}
+        <div class="row">
+        {% for review in reviews %}
+            <div class="col-lg-4 col-sm-6">
+                <h5>{{ review['username'] }}</h5>
+                <h6 class="text-muted">{{ review['date']| strftime }}</h6>
+                <p>Rating {{ review['rating'] }}</p>
+                <p>{{ review['review'] }}</p>
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}

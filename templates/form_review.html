@@ -1,0 +1,86 @@
+<script>
+    jQuery(document).ready(function($) {
+$('.rating_stars span.r').hover(function() {
+            // get hovered value
+            var rating = $(this).data('rating');
+            var value = $(this).data('value');
+            $(this).parent().attr('class', '').addClass('rating_stars').addClass('rating_'+rating);
+            highlight_star(value);
+        }, function() {
+            // get hidden field value
+            var rating = $("#rating").val();
+            var value = $("#rating_val").val();
+            $(this).parent().attr('class', '').addClass('rating_stars').addClass('rating_'+rating);
+            highlight_star(value);
+        }).click(function() {
+            // Set hidden field value
+            var value = $(this).data('value');
+            $("#rating_val").val(value);
+
+            var rating = $(this).data('rating');
+            $("#rating").val(rating);
+
+            highlight_star(value);
+        });
+
+        var highlight_star = function(rating) {
+            $('.rating_stars span.s').each(function() {
+                var low = $(this).data('low');
+                var high = $(this).data('high');
+                $(this).removeClass('active-high').removeClass('active-low');
+                if (rating >= high) $(this).addClass('active-high');
+                else if (rating == low) $(this).addClass('active-low');
+            });
+        }
+});
+</script>
+<form action="{{ url_for('book', book_id=book['id']) }}" method="post">
+    <h3>Add review</h3>
+        <div class="form-row align-middle my-auto">
+            <div class="col-auto my-auto h-100 align-middle"><label class="my-auto" for="rating_val">Rating</label></div>
+            <div class="col-auto">
+            <span class="rating_stars rating_0">
+              <span class='s' data-low='0.5' data-high='1'>
+                  <i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i>
+                  <i class="fa fa-star"></i>
+              </span>
+              <span class='s' data-low='1.5' data-high='2'>
+                  <i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i>
+                  <i class="fa fa-star"></i>
+              </span>
+              <span class='s' data-low='2.5' data-high='3'>
+                  <i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i>
+                  <i class="fa fa-star"></i>
+              </span>
+              <span class='s' data-low='3.5' data-high='4'>
+                  <i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i>
+                  <i class="fa fa-star"></i>
+              </span>
+              <span class='s' data-low='4.5' data-high='5'>
+                  <i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i>
+                  <i class="fa fa-star"></i>
+              </span>
+
+              <span class='r r0_5' data-rating='1' data-value='0.5'></span>
+              <span class='r r1' data-rating='1' data-value='1'></span>
+              <span class='r r1_5' data-rating='15' data-value='1.5'></span>
+              <span class='r r2' data-rating='2' data-value='2'></span>
+              <span class='r r2_5' data-rating='25' data-value='2.5'></span>
+              <span class='r r3' data-rating='3' data-value='3'></span>
+              <span class='r r3_5' data-rating='35' data-value='3.5'></span>
+              <span class='r r4' data-rating='4' data-value='4'></span>
+              <span class='r r4_5' data-rating='45' data-value='4.5'></span>
+              <span class='r r5' data-rating='5' data-value='5'></span>
+            </span>
+            </div>
+            <input hidden type="text" id="rating" value="0" />
+            <input hidden name="rating" type="number" step="0.5" id="rating_val" value="0">
+        </div>
+    <div class="form-row mx-auto my-3">
+        <label for="text">Your review</label>
+        <textarea class="form-control" id="text" rows="5" type="text" name="review"></textarea>
+    </div>
+    <div class="form-row my-5">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

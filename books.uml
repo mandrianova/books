@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>23a5fc25-3a3f-4c85-8dc0-5a82acf6418c.TABLE:book.public.books</OriginalElement>
+  <nodes>
+    <node x="158.0" y="22.0">23a5fc25-3a3f-4c85-8dc0-5a82acf6418c.TABLE:book.public.users</node>
+    <node x="93.5" y="213.0">23a5fc25-3a3f-4c85-8dc0-5a82acf6418c.TABLE:book.public.reviews</node>
+    <node x="0.0" y="0.0">23a5fc25-3a3f-4c85-8dc0-5a82acf6418c.TABLE:book.public.books</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="23a5fc25-3a3f-4c85-8dc0-5a82acf6418c.TABLE:book.public.reviews" target="23a5fc25-3a3f-4c85-8dc0-5a82acf6418c.TABLE:book.public.books">
+      <point x="-29.5" y="-92.5" />
+      <point x="123.0" y="188.0" />
+      <point x="69.0" y="188.0" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="23a5fc25-3a3f-4c85-8dc0-5a82acf6418c.TABLE:book.public.reviews" target="23a5fc25-3a3f-4c85-8dc0-5a82acf6418c.TABLE:book.public.users">
+      <point x="29.5" y="-92.5" />
+      <point x="182.0" y="188.0" />
+      <point x="236.0" y="188.0" />
+      <point x="0.0" y="59.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.3000000000000003" x="157.0" y="199.0" />
+  <SelectedNodes>
+    <node>23a5fc25-3a3f-4c85-8dc0-5a82acf6418c.TABLE:book.public.books</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
