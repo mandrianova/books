@@ -223,6 +223,6 @@ def api_isbn(isbn):
         "ISBN": isbn,
         "publication_date": result['year'],
         "review_count": result['review_count'],
-        "average_score": result['average_rating']
+        "average_score": float(result['average_rating'])
     })
 
