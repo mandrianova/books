@@ -213,7 +213,7 @@ def api_isbn(isbn):
         return jsonify({"error": "Invalid ISBN"}), 422
     result = db.execute("SELECT title, author, year, COUNT(review) AS review_count, "
                         "ROUND(AVG(rating), 2) AS average_rating FROM books "
-                        "JOIN reviews r ON books.id = r.book_id "
+                        "LEFT JOIN reviews r ON books.id = r.book_id "
                         "WHERE isbn = :isbn GROUP BY title, author, year, isbn", {'isbn': isbn}).fetchone()
     if not result:
         return jsonify({"error": "Book is not found"}), 404
