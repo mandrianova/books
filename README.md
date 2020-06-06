@@ -68,14 +68,14 @@ os.getenv("DATABASE_URL")
 #### Application
 
 [Application.py](application.py) contains functions:
-- def _jinja2_filter_datetime(date, fmt=None). Custom filter for a date in templates. It used in [Book.html](templates/book.html) for reviews list.
-- def login_required(f). Method for restricting access and authorization verification. Used like decorated function for index() and book().
-- def index(). Function for the main page of the site. Only Get method. Route ('/'). It contains logic for queries from search and for pagination. Returns render template [index.html](templates/index.html).
-- def book(book_id). Function for the book page. Method Get is for rendering template book page [book.html](templates/book.html) and Post is for saving review from [form_review.html](templates/form_review.html). Route ("/book/\<int:book_id>"). 
-- def logout() is a standard function for logout.
-- def login(). Get method renders the template [login.html](templates/login.html). Post method checks user data and log in user. Also return error messages if the form is incorrect.
-- def register(). Get method renders the template [register.html](templates/register.html). Post method checks and save user data in users table. Also return error messages if the form is incorrect.
-- def api_isbn(isbn). Only Get method returns a JSON response containing the book’s title, author, publication date, ISBN number, review count, and average score. If ISBN is incorrect returns ```{"error": "Invalid ISBN"}``` and status code 422, if isbn don't found returns ```{"error": "Book is not found"}``` and status code 404. The example of correct resulting JSON:
+- _jinja2_filter_datetime(date, fmt=None). Custom filter for a date in templates. It used in [Book.html](templates/book.html) for reviews list.
+- login_required(f). Method for restricting access and authorization verification. Used like decorated function for index() and book().
+- index(). Function for the main page of the site. Only Get method. Route ('/'). It contains logic for queries from search and for pagination. Returns render template [index.html](templates/index.html).
+- book(book_id). Function for the book page. Method Get is for rendering template book page [book.html](templates/book.html) and Post is for saving review from [form_review.html](templates/form_review.html). Route ("/book/\<int:book_id>"). 
+- logout() is a standard function for logout.
+- login(). Get method renders the template [login.html](templates/login.html). Post method checks user data and log in user. Also return error messages if the form is incorrect.
+- register(). Get method renders the template [register.html](templates/register.html). Post method checks and save user data in users table. Also return error messages if the form is incorrect.
+- api_isbn(isbn). Only Get method returns a JSON response containing the book’s title, author, publication date, ISBN number, review count, and average score. If ISBN is incorrect returns ```{"error": "Invalid ISBN"}``` and status code 422, if isbn don't found returns ```{"error": "Book is not found"}``` and status code 404. The example of correct resulting JSON:
 ```json
 {
   "ISBN": "0006551815", 
