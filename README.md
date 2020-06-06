@@ -2,7 +2,7 @@
 
 [The project published on heroku](https://mandrcs50pr1.herokuapp.com/)
 
-[About the project on YouTube](https://www.youtube.com/watch?v=OQ3yafOC8JY)
+[About the project on YouTube](https://www.youtube.com/watch?v=fAZq7Qdsvp8)
 
 ## Structure of Project
 ### Content
